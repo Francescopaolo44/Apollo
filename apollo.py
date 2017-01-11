@@ -3,28 +3,27 @@
 #module
 import sys
 import json
-import pyowm
+from pyowm import OWM
 # ----------------------function----------------------
 def forecast(city,condition):
-    #Default action
-    #owm_ru = owm(language='it') # set default language to it
     # open config.json file(read)
     with open("config.json", "r") as data_file:
         data = json.load(data_file)
-        owm = pyowm.OWM = (data["Api_Key"])
+        owm = OWM(data["Api_Key"])
         Name = data["Name"]
         Surname = data["Surname"]
         if condition == True:
             city = data["City"]
         # close json
         data_file.close()
-    #get weather forecast
+    #get weather forecast and information
     observation = owm.weather_at_place(city)
     weather = observation.get_weather()
     print(weather)
 # ----------------------main----------------------
 if len(sys.argv) == 1:
     print("\nWelcome to Apollo: The great weather forecast tool\n\n")
+    print("Weather forecast for default city are:\n\n")
     check_default_city = True
     forecast('',check_default_city)
 else:
