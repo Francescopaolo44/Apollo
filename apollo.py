@@ -26,7 +26,7 @@ def forecast(city,condition):
     #get weather forecast and information about city
     observation = owm.weather_at_place(city)
     info = observation.get_weather()
-    weather = info.get_status()
+    weather = info.get_detailed_status()
     wind = info.get_wind()
     temperature = info.get_temperature('celsius')
     humidity = info.get_humidity()
@@ -37,13 +37,13 @@ def forecast(city,condition):
     humidity_val = str(humidity)
     #print information
     print("\n\n" + effect.BOLD + "Weather condition" + effect.END + "\n")
-    print(weather_val)
+    print(effect.UNDERLINE + weather_val + effect.END)
     print("\n\n" + effect.BOLD + "Wind" + effect.END + "\n")
     print(wind_val)
-    print("\n\n" + effect.BOLD + "Temperature" + effect.END + "\n")
+    print("\n\n" + effect.BOLD + "Temperature [Celsius]" + effect.END + "\n")
     print(temperature_val)
     print("\n\n" + effect.BOLD + "Humidity" + effect.END + "\n")
-    print(humidity_val)
+    print(effect.UNDERLINE + humidity_val + "%" + "\n" + effect.END)
 
 # ----------------------main----------------------
 if len(sys.argv) == 1:
