@@ -7,15 +7,16 @@ from pyowm import OWM
 from colorama import Fore,Style,init
 
 # ----------------------function----------------------
+#get weather information from API
 def forecast(city,condition):
     # open config.json file(read)
-    with open("config.json", "r") as data_file:
+    with open('config.json', 'r') as data_file:
         data = json.load(data_file)
-        owm = OWM(data["Api_Key"])
-        Name = data["Name"]
-        Surname = data["Surname"]
+        owm = OWM(data['Api_Key'])
+        Name = data['Name']
+        Surname = data['Surname']
         if condition == True:
-            city = data["City"]
+            city = data['City']
         # close json
         data_file.close()
     #get weather forecast and information about city
@@ -33,25 +34,32 @@ def forecast(city,condition):
     #print information
     init()
     print("\nUser")
-    print(Fore.YELLOW + Name + " " + Surname + Style.RESET_ALL)
-    print("\nCity")
+    print(Fore.YELLOW + Name + ' ' + Surname + Style.RESET_ALL)
+    print('\nCity')
     print(Fore.CYAN + city + Style.RESET_ALL)
-    print("\nWeather condition")
+    print('\nWeather condition')
     print(Fore.CYAN + weather_val + Style.RESET_ALL)
-    print("\nWind")
+    print('\nWind')
     print(Fore.CYAN + wind_val + Style.RESET_ALL)
-    print("\nTemperature [Celsius]")
+    print('\nTemperature [Celsius]')
     print(Fore.CYAN + temperature_val + Style.RESET_ALL)
-    print("\nHumidity")
-    print(Fore.CYAN + humidity_val + "%" + Style.RESET_ALL)
+    print('\nHumidity')
+    print(Fore.CYAN + humidity_val + '%' + Style.RESET_ALL)
+#help command
+def help ():
+    print ('Apollo usage:\n\n' +
+           'Apollo[city_name] : show weather information about city')
 
 # ----------------------main----------------------
 if len(sys.argv) == 1:
-    print("\nWelcome to Apollo: The great weather forecast tool\n\n")
-    print("Weather forecast for default city are:\n\n")
+    print('\nWelcome to Apollo: The great weather forecast tool\n\n')
+    print('Weather forecast for default city are:\n\n')
     check_default_city = True
     forecast('',check_default_city)
 else:
-    check_default_city = False
-    #call forecast with user's city
-    forecast(sys.argv[1],check_default_city)
+    if sys.argv[1] == '--help':
+        help()
+    else:
+        check_default_city = False
+        #call forecast with user's city
+        forecast(sys.argv[1],check_default_city)
