@@ -4,12 +4,7 @@
 import sys
 import json
 from pyowm import OWM
-
-# ----------------------class----------------------
-class effect:
-   BOLD = '\033[1m'
-   UNDERLINE = '\033[4m'
-   END = '\033[0m'
+from colorama import Fore,Style,init
 
 # ----------------------function----------------------
 def forecast(city,condition):
@@ -36,14 +31,19 @@ def forecast(city,condition):
     temperature_val = str(temperature)
     humidity_val = str(humidity)
     #print information
-    print("\n\n" + effect.BOLD + "Weather condition" + effect.END + "\n")
-    print(effect.UNDERLINE + weather_val + effect.END)
-    print("\n\n" + effect.BOLD + "Wind" + effect.END + "\n")
-    print(wind_val)
-    print("\n\n" + effect.BOLD + "Temperature [Celsius]" + effect.END + "\n")
-    print(temperature_val)
-    print("\n\n" + effect.BOLD + "Humidity" + effect.END + "\n")
-    print(effect.UNDERLINE + humidity_val + "%" + "\n" + effect.END)
+    init()
+    print("\nUser")
+    print(Fore.YELLOW + Name + " " + Surname + Style.RESET_ALL)
+    print("\nCity")
+    print(Fore.CYAN + city + Style.RESET_ALL)
+    print("\nWeather condition")
+    print(Fore.CYAN + weather_val + Style.RESET_ALL)
+    print("\nWind")
+    print(Fore.CYAN + wind_val + Style.RESET_ALL)
+    print("\nTemperature [Celsius]")
+    print(Fore.CYAN + temperature_val + Style.RESET_ALL)
+    print("\nHumidity")
+    print(Fore.CYAN + humidity_val + "%" + Style.RESET_ALL)
 
 # ----------------------main----------------------
 if len(sys.argv) == 1:
