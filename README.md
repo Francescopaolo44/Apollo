@@ -1,51 +1,54 @@
 # Apollo
 
-Apollo is the great tool to get fast waether forecast,for your city.
+Apollo is the great tool to get a fast waether forecast for your city.
 
-# Introduction
-With Apollo, you can get many weather deatails for your city, for example:
-	- wind
-	- weather condition
-	- humidity
+## Introduction
 
+With Apollo, you can get many weather details for your city. For example:
 
-Apollo is written in python, an easy and powerful language for powerful tools 
+* wind
+* weather condition
+* humidity
 
-### Get Started
+Apollo is written in Python, an easy and powerful language for powerful tools.
+
+## Get Started
 
 Follow this step for use Apollo correctly:
-* [Setup.py] - Run Setup.py to install all dependecies
-* [config.json] - Open config file and add your name and surname,also you must add default city value, for example your city
-* [Apollo.py] - Run Apollo.py and add next city name
-* [help] - Run Apollo.py help to print all commands
+
+* Run `setup.py` to install all dependencies
+* Open `config.json` and add your name and surname. Also, you need to add a default city value. E.g.:
+
+        {
+          "City": "New York",
+          "Api_Key": "1fad2670e91546ebd6f280e185b23732",
+          "Name": "John",
+          "Surname": "Smith"
+        }
+
+* Run `Apollo.py` and add next city name
+* Run `Apollo.py help` to print all the available commands
 
 ### Dependencies
 
-The project use third-party modules to work properly.
-The imported modules are:
-* [sys] - for command-line arguments
-* [pyowm] - for OWM Api
-*[json] - for load and modify config.json
+The project is dependent on third-party modules:
 
+* [pyowm](https://pypi.python.org/pypi/pyowm) for OWM Api
+* [simplejson](https://pypi.python.org/pypi/simplejson) for load and modify config.json
 
-### Development
+## Development
 
-Want to contribute? Great!
+Do you want to contribute? Great!
 
+* Fork Apollo: click the Fork button in the header of the repository.
+* You’ve successfully forked the Apollo repository, but so far, you will need to clone it to your computer:
 
-Fork Apollo Repo:
-```sh
-Click the Fork button in the header of the repository.
-```
+  ```sh
+  git clone git@github.com:<your_username>/Apollo.git
+  ```
 
-Second Tab:
-```sh
-You’ve successfully forked the Apollo repository, but so far, you will need to clone it to your computer.
-```
+* When you’re ready to propose changes to the main project, make a pull request.
 
-Third:
-```sh
-At last, when you’re ready to propose changes into the main project, make a pull request.
-```
-### Contributor
-> Main: Dellaquila Francesco Paolo
+## Contributors
+
+* Dellaquila Francesco Paolo
